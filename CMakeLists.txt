@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 project(FUSECpp LANGUAGES CXX)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -D_FILE_OFFSET_BITS=64")
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMake" ${CMAKE_MODULE_PATH})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_FILE_OFFSET_BITS=64")
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake" ${CMAKE_MODULE_PATH})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
@@ -10,6 +10,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
 find_package(FUSE REQUIRED)
 
-add_executable(FUSECpp ./src/main.cpp)
-target_include_directories(FUSECpp PUBLIC ./include)
+add_executable(FUSECpp 
+    ${PROJECT_SOURCE_DIR}/src/main.cpp
+    ${PROJECT_SOURCE_DIR}/src/Fuse.cpp
+)
+
+target_include_directories(FUSECpp PUBLIC ${PROJECT_SOURCE_DIR}/include)
+
 target_link_libraries(FUSECpp ${FUSE_LIBRARIES})
