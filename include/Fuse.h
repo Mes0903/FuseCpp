@@ -9,14 +9,14 @@
 
 #include <string>
 
-inline std::string dir_list[256];
-inline int curr_dir_idx = -1;
+inline bool DO_DECRYPT = true;
 
-inline std::string files_list[256];
-inline int curr_file_idx = -1;
+void handleErrors(void);
+int encrypt(unsigned char *plaintext, int plaintext_len, unsigned char *key, unsigned char *iv, unsigned char *ciphertext);
+int decrypt(unsigned char *ciphertext, int ciphertext_len, unsigned char *key, unsigned char *iv, unsigned char *plaintext);
 
-inline std::string files_content[256];
-inline int curr_file_content_idx = -1;
+void store_key_iv(const std::string &path, const unsigned char *key, const unsigned char *iv);
+void retrieve_key_iv(const std::string &path, unsigned char *key, unsigned char *iv);
 
 void add_dir(const char *dir_name);
 

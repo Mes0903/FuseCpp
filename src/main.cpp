@@ -35,5 +35,9 @@ static void set_operations()
 int main(int argc, char *argv[])
 {
   set_operations();
+
+  std::cout << "Do you want to decrypt the files? (1/0): ";
+  std::cin >> DO_DECRYPT;
+
   return fuse_main(argc, argv, &operations, NULL);
 }

@@ -25,9 +25,9 @@ ContinuationIndentWidth: 2
 BinPackArguments: true
 ColumnLimit: 3000
 AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortLambdasOnASingleLine: false
 BreakBeforeBraces: Custom
 NamespaceIndentation: All
-Cpp11BracedListStyle: false
 ForEachMacros:   
 - foreach
 - Q_FOREACH
@@ -50,6 +50,7 @@ BraceWrapping:
   AfterObjCDeclaration:	false
   AfterUnion:	false
   BeforeCatch:	false
+  BeforeLambdaBody: true
   BeforeElse:	true
   IndentBraces:	false
   SplitEmptyRecord: false

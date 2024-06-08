@@ -11,12 +11,14 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
 find_package(FUSE REQUIRED)
+find_package(OpenSSL REQUIRED)
 
 add_executable(FUSECpp 
     ${PROJECT_SOURCE_DIR}/src/main.cpp
     ${PROJECT_SOURCE_DIR}/src/Fuse.cpp
+    # ${PROJECT_SOURCE_DIR}/src/test.cpp
 )
 
 target_include_directories(FUSECpp PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
-target_link_libraries(FUSECpp ${FUSE_LIBRARIES})
+target_link_libraries(FUSECpp ${FUSE_LIBRARIES} OpenSSL::SSL OpenSSL::Crypto)
