@@ -341,3 +341,18 @@ int do_unlink(const char *path)
 
   return 0;
 }
+
+int do_open(const char *path, struct fuse_file_info *fi)
+{
+  if (get_file_index(path) == -1) {
+    path++;
+    add_file(path);
+  }
+
+  return 0;
+}
+
+int do_release(const char *path, struct fuse_file_info *fi)
+{
+  return 0;
+}

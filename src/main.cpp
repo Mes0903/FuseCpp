@@ -30,6 +30,8 @@ static void set_operations()
   operations.utimens = do_utimens;
   operations.rmdir = do_rmdir;
   operations.unlink = do_unlink;
+  operations.open = do_open;
+  operations.release = do_release;
 }
 
 int main(int argc, char *argv[])

@@ -3,6 +3,7 @@
 ```
 sudo apt-get update
 sudo apt-get install gcc fuse libfuse-dev make cmake
+sudo apt-get install libssl-dev
 ```
 
 # Compiling
@@ -14,61 +15,21 @@ cmake ..
 cmake --build .
 ```
 
-# Testing
+# Brief
 
-demo video：https://www.youtube.com/watch?v=S9xHOY2JyT0
+This is an very simple filesystem made by FUSE. support basic operations such as 
 
-```
-cd ..
-./FUSECpp -f mnt
-```
+- Create, read, and write files.
+- Open and close files.
+- Create and remove directories.
+- List directory contents.
 
-then open an new terminal
+also, it Integrating AES-256-CBC Encryption for the write and read operations, thus the file was encrypted.
 
-## cd
-
-```
-cd mnt
-```
-
-## ls
+There is an mini-test script to demo the encryption and the basic operations
 
 ```
-ls
+./mini-test.sh
 ```
 
-## mkdir
-
-```
-mkdir test_folder
-```
-
-## rmdir
-
-```
-rmdir test_folder
-```
-
-## touch
-
-```
-touch test
-```
-
-## rm
-
-```
-rm test
-```
-
-## echo
-
-```
-echo "Test String" >> test
-```
-
-## cat
-
-```
-cat test
-```
+![alt text](mini-test.png)

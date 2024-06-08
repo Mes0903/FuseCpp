@@ -50,4 +50,8 @@ int do_rmdir(const char *path);
 
 int do_unlink(const char *path);
 
+int do_open(const char *path, struct fuse_file_info *fi);
+
+int do_release(const char *path, struct fuse_file_info *fi);
+
 #endif
